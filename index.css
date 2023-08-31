@@ -1,0 +1,332 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background:  hsl(180, 52%, 96%);
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
+}
+
+.img-header{
+    width: 100%;
+    background: hsl(180, 29%, 50%);
+    position: fixed;
+    top: 0;
+    z-index: 2;
+}
+
+.img-mobile{
+    display: none;
+    background: hsl(180, 29%, 50%);
+}
+
+.hr-all{
+    display: none;
+}
+
+.h1-geral h1:hover{
+    color: hsl(180, 29%, 50%);
+}
+
+#filter-buttons{
+    border: none;
+    border-radius: 5px;
+    background: white;
+    position: fixed;
+    z-index: 2;
+    top: 15vh;
+    left: 10.9vw;
+    width: 78%;
+    box-shadow: 0px 20px 20px -10px hsla(180, 29%, 50%, 0.323);
+    max-width: 100%;
+    padding: 17px 25px 25px 25px;
+    display: grid;
+    grid-template-columns: repeat(8,10fr);
+}
+
+#filter-buttons button{
+    color: hsl(180, 29%, 50%);
+    background: hsl(180, 52%, 96%);
+    font-size: 17px;
+    height: 5vh;
+    width: 17vh;
+    max-width: 100%;
+    font-weight: 600;
+    font-family:  'League Spartan', sans-serif;
+    border: none;
+    border-radius: 5px;
+    margin-top: 8px;
+}
+
+.lang-off, .tools-off{
+    display: none;
+    
+}
+
+/* ------------------------ CONTAINER ------------------------- */
+#jobs-list{
+    padding-bottom: 19vh;
+    padding-top: 30vh;
+}
+
+.job-card:nth-child(1){
+    border-left: 5px solid hsl(180, 29%, 50%);
+}
+
+.job-card:nth-child(2){
+    border-left: 5px solid hsl(180, 29%, 50%);
+}
+
+.job-card{
+    border: none;
+    border-radius: 4px;
+    background: white;
+    margin: auto;
+    margin-top: 4vh;
+    padding: 35px;
+    width: 78%;
+    box-shadow: 0px 20px 20px -10px hsla(180, 29%, 50%, 0.323);
+    max-width: 100%;
+}
+
+.img-geral{
+    margin-right: 25px;
+}
+
+.new-off{
+    display: none;
+}
+
+.name-geral{
+    display: flex;
+    margin-bottom: 16px;
+}
+
+h2{
+    color: hsl(180, 29%, 50%);
+    font-size: 18px;
+    margin-right: 20px;
+    align-items: center;
+}
+
+.name-geral p{
+    border: none;
+    background: hsl(180, 29%, 50%);
+    border-radius: 20px;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 10px 4px 10px;
+    margin-top: -3px;
+    margin-right: 8px;
+    width: 50px;
+    font-family: 'League Spartan', sans-serif;
+}
+
+.name-geral p2{
+    border: none;
+    border-radius: 20px;
+    background: hsl(180, 14%, 20%);
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 10px 4px 10px;
+    margin-top: -3px;
+    font-family: 'League Spartan', sans-serif;
+}
+
+.job-featured{
+    border-left: 5px solid hsl(180, 29%, 50%);
+}
+
+.h1-geral h1{
+    font-size: 22px;
+    color: hsl(180, 14%, 20%);
+    margin-bottom: 16px;
+}
+
+.infos-geral{
+    display: flex;
+}
+
+.infos-geral li{
+    color: hsl(180, 8%, 52%);
+    font-weight: 500;
+    white-space:nowrap;
+    font-size: 17.5px;
+    margin-right: 20px;
+}
+
+.geral-btns{
+    display: flex;
+    position: absolute;
+    right: 27vh;
+    margin-top: 30px;
+}
+
+.lang-btns{
+    display: flex;
+}
+
+.geral-btns button{
+    color: hsl(180, 29%, 50%);
+    background: hsl(180, 52%, 96%);
+    border: none;
+    height: 32px;
+    font-size: 17px;
+    font-family: 'League Spartan', sans-serif;
+    padding: 0 8px 0 8px;
+    border-radius: 5px;
+    margin-right: 18px;
+    font-weight: 700;
+    z-index: 1;
+}
+
+.geral-btns button:hover{
+    background: hsl(180, 29%, 50%);
+    color: white;
+}
+
+.dropbtn {
+    background-color: hsl(180, 29%, 50%);
+    border: 2px solid hsl(180, 34%, 41%);
+    border-radius: 50px;
+    width: 60px;
+    height: 60px;
+    color: hsl(180, 52%, 96%);
+    padding: 16px;
+    font-size: 16px;
+    cursor: pointer;
+    position: fixed;
+    top: 20vh;
+    left: 10vh;
+    z-index: 3;
+  }
+  
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: hsl(180, 45%, 61%);
+    color: hsl(180, 34%, 41%);
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  .show {display:block;}
+
+/* ------------------- FIM DO CONTAINER ----------------------- */
+
+
+
+@media only screen and (max-width: 767px) {
+    div.container-image img.show {
+        display: none;
+    }
+    .show-mobile {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+    
+    .hr-all {
+        display: block;
+        margin-top: 20px;
+    }
+    
+    .job-card {
+        max-width: 100%;
+        width: 90%;
+        height: 43vh;
+        margin-top: 7vh;
+        padding: 25px;
+    }
+    
+    .flex {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .name-geral {
+        margin-top: -30px;
+    }
+    
+    .img-geral {
+        position: relative;
+        top: -7vh;
+    }
+    
+    .img-geral img {
+        width: 50px;
+    }
+    
+    .geral-btns {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Corrigido o valor da grid */
+        position: relative;
+        right: 0;
+    }
+    
+    .geral-btns button {
+        margin-bottom: 20px;
+    }
+    
+    .h1-geral h1 {
+        font-size: 18px;
+    }
+    
+    #filter-buttons {
+        border: none;
+        border-radius: 5px;
+        background: white;
+        position: fixed;
+        z-index: 2;
+        top: 15vh;
+        left: 2.6vh;
+        width: 90%;
+        box-shadow: 0px 20px 20px -10px hsla(180, 29%, 50%, 0.323);
+        max-width: 100%;
+        padding: 17px 25px 25px 25px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Corrigido o valor da grid */
+    }
+    
+    #filter-buttons button {
+        font-size: 13px;
+        height: 5vh;
+        width: 12vh;
+        max-width: 100%;
+        border: none;
+        border-radius: 5px;
+        margin-top: 8px;
+    }
+    
+    .dropbtn {
+        cursor: pointer;
+        position: fixed;
+        top: 10vh;
+        left: 5vh;
+        z-index: 3;
+    }
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Lista de Trabalhos</title>
+
+ <link rel="stylesheet" href="index.css">
+
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap" rel="stylesheet">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <div class="container-image">
+    <img class="show img-header" src="images/bg-header-desktop.svg" >
+    <img class="show-mobile img-mobile" src="images/bg-header-mobile.svg">
+    </div>
+
+    <!-- Barra de filtro com botões -->
+
+    <div class="dropdown">
+      <button id="myBtn" class="dropbtn"><svg xmlns="http://www.w3.org/2000/svg" style="fill: white;" x="0px" y="0px" width="25" height="25" viewBox="0 0 50 50"><path d="M 21 3 C 11.601563 3 4 10.601563 4 20 C 4 29.398438 11.601563 37 21 37 C 24.355469 37 27.460938 36.015625 30.09375 34.34375 L 42.375 46.625 L 46.625 42.375 L 34.5 30.28125 C 36.679688 27.421875 38 23.878906 38 20 C 38 10.601563 30.398438 3 21 3 Z M 21 7 C 28.199219 7 34 12.800781 34 20 C 34 27.199219 28.199219 33 21 33 C 13.800781 33 8 27.199219 8 20 C 8 12.800781 13.800781 7 21 7 Z"></path></svg></button>
+      <div id="myDropdown" class="dropdown-content">
+<div id="filter-buttons">
+    <button class="filter-button" data-filter="Frontend">Frontend</button>
+    <button class="filter-button" data-filter="Backend">Backend</button>
+    <button class="filter-button" data-filter="Fullstack">Fullstack</button>
+    <button class="filter-button" data-filter="Senior">Senior</button>
+    <button class="filter-button" data-filter="Midweight">Midweight</button>
+    <button class="filter-button" data-filter="Junior">Junior</button>
+    <button class="filter-button" data-filter="HTML">HTML</button>
+    <button class="filter-button" data-filter="css">css</button>
+    <button class="filter-button" data-filter="JavaScript">JavaScript</button>
+    <button class="filter-button" data-filter="Python">Python</button>
+    <button class="filter-button" data-filter="Sass">Sass</button>
+    <button class="filter-button" data-filter="Ruby">Ruby</button>
+    <button class="filter-button" data-filter="RoR">RoR</button>
+    <button class="filter-button" data-filter="Vue">Vue</button>
+    <button class="filter-button" data-filter="Django">Django</button>
+  </div>
+      </div>
+    </div>
+  
+
+<div id="jobs-list"></div>
+<script>
+async function fetchData() {
+ try {
+ const response = await fetch('data.json'); 
+
+ const data = await response.json();
+
+ const jobsList = document.getElementById('jobs-list')
+
+ ;
+ data.forEach(job => {
+
+ const jobCard = document.createElement('div');
+
+ jobCard.classList.add('job-card'); 
+ 
+
+ jobCard.innerHTML = `
+
+
+ <div class="flex" style="display:flex;">
+    
+ <div class="img-geral">
+ <img src="${job.logo}" alt="${job.company} Logo">
+ </div>
+
+ <div>
+ <div class="name-geral">
+ <h2>${job.company}</h2>
+ <p class="${job.new == true ? 'new-on' : 'new-off'}">${job.new == true ? 'NEW!' : ''}</p>
+ <p2 class="${job.featured == true ? 'new-on':'new-off'}">${job.featured== true ? 'FEATURED' :''}  </p2>
+ </div>
+ 
+ <div class="h1-geral">
+ <h1>${job.position}</h1>
+ </div>
+
+ <div class="infos-geral">
+ <li style="list-style: none;">${job.postedAt}</li>
+ <li>${job.contract}</li>
+ <li>${job.location}</li>
+ </div>
+ </div>
+
+ <hr class="hr-all">
+
+ 
+ <div class="geral-btns">
+
+ <button data-filter="item1">${job.role} </button>
+ <button data-filter="item2"> ${job.level}</button> 
+
+ <button class="${job.tools[0] !== undefined ? 'tools-on' : 'tools-off'}">${job.tools [0]!== undefined ? job.tools[0] : ''} </button>
+      <button class="${job.tools[1] !== undefined ? 'tools-on' : 'tools-off'}">${job.tools [1]!== undefined ? job.tools[1] : ''}</button>
+     
+  
+    
+        <button class="${job.languages[0] !== undefined ? 'lang-on' : 'lang-off'}">${job.languages[0] !== undefined ? job.languages[0] : ''}</button>
+
+        <button class="${job.languages[1] !== undefined ? 'lang-on' : 'lang-off'}">${job.languages[1] !== undefined ? job.languages[1] : ''}</button>
+
+        <button class="${job.languages[2] !== undefined ? 'lang-on' : 'lang-off'}">${job.languages[2] !== undefined ? job.languages[2] : ''}</button>
+     </div>
+
+ </div>
+ `;
+
+ jobsList.appendChild(jobCard);
+
+ });
+ } catch (error) {
+ console.error('Erro ao buscar dados:', error);
+ }
+}
+
+// Chamar a função para buscar e consumir os dados
+fetchData();
+
+fetch('data.json')
+    .then(response => response.json())
+    .then(data => {
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const filterCategory = button.getAttribute('data-filter');
+          itemList.innerHTML = ''; // Limpar a lista antes de adicionar itens filtrados
+
+          data.forEach(item => {
+            if (filterCategory === 'all' || filterCategory === item.category) {
+              const li = document.createElement('li');
+              li.textContent = item.name;
+              itemList.appendChild(li);
+            }
+          });
+        });
+      });
+    })
+    .catch(error => console.error('Erro ao carregar o JSON:', error));
+
+
+
+    
+</script>
+
+
+<!-- MENU DO FILTRO -->
+<script>
+  document.getElementById("myBtn").onclick = function() {myFunction()};
+  
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  
+  </script>
+</body>
+</html>
